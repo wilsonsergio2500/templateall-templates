@@ -1,0 +1,31 @@
+{
+    "name": "{Name_file}",
+    "version": "1.0.0",
+    "author": "Orion",
+    "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": ""
+    },
+    "peerDependencies": {
+      "@angular/core": ">=8.0.0",
+      "@angular/common": ">=8.0.0",
+      "@angular/material": ">=8.0.0",
+      "rxjs": ">=6.0.0"
+    },
+    "keywords": [
+      "angular",
+      "forms",
+      "strongly typed",
+      "reactive-forms",
+      "reactive-forms typed",
+      "material"
+    ],
+    "ngPackage": {
+      "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+      "lib": {
+        "entryFile": "public_api.ts"
+      },
+      "dest": "dist"
+    }
+  }

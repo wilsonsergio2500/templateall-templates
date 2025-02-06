@@ -1,0 +1,25 @@
+{
+  "templates": "C:\\templateall\\templates",
+  "types": {
+    "NGXS State": "state",
+    "NGXS State - Catalog": "state-catalog",
+    "NGXS State & List Filter Paginator": "state-list-paginator",
+    "NG Component & Resolver": "ng-component-resolver",
+    "NG Component": "ng-component",
+    "NG Component & Formly": "ng-component-formly",
+    "NG Component & List Filter Paginator": "ng-component-list-filter",
+    "NG Module Only": "ng-module-only",
+    "NG Module with Components": "ng-module-components",
+    "NG Module with Routing": "ng-module-routing",
+    "Ng Packagr": "ng-pkgr",
+    "NGXS State + Firebase In Memory (Pagination)": "ngxs-state-firebase-mem",
+    "NGXS State + Firebase (Smart Pagination)": "ngxs-state-firebase-smartpag",
+    "NG Component Dialog": "ng-component-dialog",
+    "Stand Alone + To Lazy Load": "ng-module-stand-alone",
+    "Prime - Component + Dialog": "ng-prime-dialog"
+  },
+  "autoIndent": false,
+  "Data": {
+    "tps" : { "state" : "just an example"}	
+  }
+}

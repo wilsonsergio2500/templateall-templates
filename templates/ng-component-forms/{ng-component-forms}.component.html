@@ -1,0 +1,6 @@
+<form [formGroup]="formGroup" (ngSubmit)="submit()" >
+    <div class="form-field">
+        <label for="name">Name</label>
+        <input formControlName="name" pInputText id="name" aria-describedby="name-help"/>
+    </div>
+</form>
