@@ -1,12 +1,15 @@
-export class {Name_pascalized}Loading {
-  static type = '[{Name_titlelized}] Set As Working';
-}
+export namespace {Name_pascalized}Actions{
 
-export class {Name_pascalized}Done {
-  static type = '[{Name_titlelized}] Set As Done';
-}
+  export class Loading {
+    static readonly type = '[{Name_titlelized}] Set As Loading';
+  }
 
-export class {Name_pascalized}GetElements {
-  static type = '[{Name_titlelized}] Get Elements';
-}
+  export class Working {
+    static readonly type = '[{Name_titlelized}] Set As Working';
+  }
 
+  export class Done {
+    static readonly type = '[{Name_titlelized}] Set As Done';
+  }
+
+}

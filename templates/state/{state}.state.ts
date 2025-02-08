@@ -1,61 +1,56 @@
 import { Store, State, Selector, StateContext, Action } from '@ngxs/store';
 import { HttpClient } from '@angular/common/http';
 import { I{Name_pascalized}StateModel } from './{Name_file}.model';
-import { {Name_pascalized}Done, {Name_pascalized}Loading, {Name_pascalized}GetElements } from './{Name_file}.actions';
-import { tap, timeout, mergeMap } from 'rxjs/operators';
+import { {Name_pascalized}Actions } from './{Name_file}.actions';
 
-/**
- * Comments: {!tps.state!}
- */
 @State<I{Name_pascalized}StateModel>({
     name: '{Name_original}',
     defaults: <I{Name_pascalized}StateModel>{
-        working: true,
-        records: [],
+    loading: false,
+    busy: false,
       }
 })
 export class {Name_pascalized}State {
 
     constructor(
-        private httpClient: HttpClient
+        private readonly httpClient: HttpClient
     ){
-
     }
 
-@Selector()
-  static IsWorking(state: I{Name_pascalized}StateModel) : boolean {
-    return state.working;
-  }
+    get basePath(){
+        return 'path';
+    }
 
-  @Selector()
-  static getItems(state: I{Name_pascalized}StateModel): any[] {
-    return state.records;
-  }
+    @Selector()
+    static IsLoading(state: I{Name_pascalized}StateModel): boolean {
+            return state.loading;
+        }
 
-  @Action({Name_pascalized}Done)
-  on{entry_name}Done(ctx: StateContext<I{Name_pascalized}StateModel>) {
-    ctx.patchState({
-      working: false
-    });
-  }
-  @Action({Name_pascalized}Loading)
-  on{entry_name}Loading(ctx: StateContext<I{Name_pascalized}StateModel>) {
-    ctx.patchState({
-      working: true
-    });
-  }
+    @Selector()
+    static IsWorking(state: I{Name_pascalized}StateModel): boolean {
+            return state.busy;
+        }
 
-  @Action({Name_pascalized}GetElements)
-  getElements(ctx: StateContext<I{Name_pascalized}StateModel>){
-    return ctx.dispatch(new {Name_pascalized}Loading()).pipe(
-        mergeMap(() => this.httpClient.get(`${environment.api.target}name/items`)),
-        tap((records : any[]) => {
+    @Action({Name_pascalized}Actions.Done)
+        on{entry_name}Done(ctx: StateContext<I{Name_pascalized}StateModel>) {
             ctx.patchState({
-                records
-              });
-        }),
-        mergeMap(() => ctx.dispatch(new  {Name_pascalized}Done()))
-    )
-  }
+                loading: false,
+                busy: false
+            });
+        }
+
+    @Action({Name_pascalized}Actions.Loading)
+        on{entry_name}Loading(ctx: StateContext<I{Name_pascalized}StateModel>) {
+            ctx.patchState({
+                loading: true
+            });
+        }
+
+    @Action({Name_pascalized}Actions.Working)
+        onWorking(ctx: StateContext<I{Name_pascalized}StateModel>) {
+            ctx.patchState({
+                busy: true
+            });
+        }
 
 }

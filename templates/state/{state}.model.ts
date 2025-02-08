@@ -1,5 +1,8 @@
 export interface I{Name_pascalized}StateModel {
-    working: boolean;
-    records: any[];
-  
-  }
+    loading: boolean;
+    busy: boolean;
+}
+
+export type {Name_pascalized}Type =  {
+
+}
